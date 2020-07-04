@@ -1,15 +1,14 @@
 package com.nelioalves.cursomc.domain.enuns;
 
-public enum EstadoPagamento {
+public enum Perfil {
 
-	PEDENTE(1, "pendente"),
-	QUITADO(2, "Quitado"),
-	CANCELADO(3, "Cancelado");
+	ADMIN(1, "ROLE_ADMIN"),
+	CLIENTE(2, "ROLE_CLIENTE");
 
 	private int cod;
 	private String descricao;
 
-	private EstadoPagamento(int cod, String descrica) {
+	private Perfil(int cod, String descrica) {
 		this.cod = cod;
 		this.descricao = descrica;
 	}
@@ -22,11 +21,11 @@ public enum EstadoPagamento {
 		return descricao;
 	}
 
-	public static EstadoPagamento toEnum(Integer cod) {
+	public static Perfil toEnum(Integer cod) {
 		if (cod == null) {
 			return null;
 		}
-		for (EstadoPagamento x : EstadoPagamento.values()) {
+		for (Perfil x : Perfil.values()) {
 			if (cod.equals(x.getCod())) {
 				return x;
 			}
