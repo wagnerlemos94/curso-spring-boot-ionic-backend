@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nelioalves.cursomc.services.validation.ClienteInsert;
 
 @ClienteInsert
@@ -25,6 +26,9 @@ public class ClienteNewDTO implements Serializable{
 	private String cpfOuCnpj;
 	
 	private Integer tipo;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String  senha;
 	
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String logradouro;
@@ -84,6 +88,14 @@ public class ClienteNewDTO implements Serializable{
 		this.tipo = tipo;
 	}
 
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
 	public String getLogradouro() {
 		return logradouro;
 	}
